@@ -85,6 +85,7 @@ python -m projection_learning_model.evaluate \
        --model-file crim_wordnet/model.pytorch
 ```
 The MRR, recall@15 and mean shortest-path-distance between predicted and actual parents is reported.
+Predictions are made by computing cosine distances to internal training nodes only (since leaf nodes cannot have children).
 If `model-file` is not provided, the model with the highest validation MRR in `save-folder` is used.
 
 ## Contact
