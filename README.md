@@ -50,6 +50,12 @@ python create_train_test_split.py \
        --test-fraction 0.15
 ```
 
+Create lists of the ancestors of each node:
+```
+python compute_ancestor_lists.py --edges-file data/wordnet/mammal_train.csv
+```
+This writes the ancestor lists to `data/wordnet/mammal_train_ancestors.csv`.
+
 Further configuration options:
   - See `projection_learning_model/constants.py`
   - See `projection_learning_model/hyperparams.py`
