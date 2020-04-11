@@ -8,6 +8,8 @@ This repository contains the code for the Arborist taxonomy expansion method and
 
 To test if your embeddings (or, more generally, your node feature vectors) have enough signal to predict taxonomy parents, we recommend running CRIM first (since it is a simpler model, and easier/faster to train).
 
+If CRIM performs reasonably well, Arborist will further improve performance by exploitng the latent heterogenous edge semantics (if any) present in the taxonomy.
+
 ## Quickstart: CRIM on the Wordnet Taxonomy
 
 This is a slightly improved version of CRIM with the same enhancements used for Arborist.
