@@ -54,11 +54,35 @@ Create lists of the ancestors of each node:
 ```
 python compute_ancestor_lists.py --edges-file data/wordnet/mammal_train.csv
 ```
-This writes the ancestor lists to `data/wordnet/mammal_train_ancestors.csv`.
+This writes the ancestor lists to `data/wordnet/mammal_train_ancestors.csv` in the format `node,ancestor1,ancestor2,...`.
 
-Further configuration options:
-  - See `projection_learning_model/constants.py`
-  - See `projection_learning_model/hyperparams.py`
+Train the model on `data/wordnet/mammal_train.csv`:
+```
+python -m projection_learning_model.train \
+       --embeddings-file data/wordnet/mammal_vocab_fasttext_embeddings.csv \
+       --train-edges-file data/wordnet/mammal_train.csv \
+       --ancestors-file data/wordnet/mammal_train_ancestors.csv \
+       --nprojections 48 --nnegs 5 --nepochs 10 \
+       --batch-size 4096 --learning-rate 0.005 \
+       --weight-decay 0.001 --dropout 0.01 \
+       --save-folder crim_wordnet
+```
+This saves all model information in the `crim_wordnet` folder. Some useful diagnostics can be found as follows:
+   - View train loss over epochs: `tail crim_wordnet/train_loss.txt`. The format is: `total_loss,positive_loss,negative_loss`
+   - View validation loss over epochs: `tail crim_wordnet/train_loss.txt`. The format is: `total_loss,MRR,Recall@15,positive_loss,negative_loss`
+   - Configure training and validation optionsin files `projection_learning_model/constants.py`, `projection_learning_model/hyperparams.py`.
+
+Evaluate the model on `data/wordnet/mammal_test.csv`:
+```
+python -m projection_learning_model.evaluate \
+       --embeddings-file data/wordnet/mammal_vocab_fasttext_embeddings.csv \
+       --train-edges-file data/wordnet/mammal_train.csv \
+       --test-edges-file data/wordnet/mammal_test.csv \
+       --save-folder crim_wordnet \
+       --model-file crim_wordnet/model.pytorch
+```
+The MRR, recall@15 and mean shortest-path-distance between predicted and actual parents is reported.
+If `model-file` is not provided, the model with the highest validation MRR in `save-folder` is used.
 
 ## Contact
 
