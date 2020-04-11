@@ -4,9 +4,11 @@
 
 [https://cmuarborist.github.io/](https://cmuarborist.github.io/)
 
-This repository contains the code for the Arborist method.
+This repository contains the code for the Arborist taxonomy expansion method and the [CRIM](https://www.aclweb.org/anthology/S18-1116/) baseline.
 
 ## Quickstart: CRIM on the Wordnet Taxonomy
+
+This is a slightly improved version of CRIM with the same enhancements used for Arborist.
 
 Install required packages:
 ```
@@ -29,7 +31,7 @@ This script does the following:
 Get the embeddings of each node text.
 You can use your favorite embedding method.
 The following constructs FastText embeddings with the [Flair](https://github.com/flairNLP/flair) library
-and stores them in `data/wordnet/mammal_vocab_fasttext_embeddings.csv`:
+and stores them in `data/wordnet/mammal_vocab_fasttext_embeddings.csv` as `word,embedding_dim1,embedding_dim2,...`:
 ```
 virtualenv --python=python3 env3
 source env3/bin/activate # need a Python 3 environment
@@ -51,7 +53,7 @@ python create_train_test_split.py \
        --test-fraction 0.15
 ```
 
-Create lists of the ancestors of each node:
+Create lists of the ancestors of each node (so they can be excluded from the negative samples for each node):
 ```
 python compute_ancestor_lists.py --edges-file data/wordnet/mammal_train.csv
 ```
