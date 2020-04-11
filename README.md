@@ -28,7 +28,8 @@ This script does the following:
 
 Get the embeddings of each node text.
 You can use your favorite embedding method.
-The following constructs FastText embeddings with the [Flair](https://github.com/flairNLP/flair) library:
+The following constructs FastText embeddings with the [Flair](https://github.com/flairNLP/flair) library
+and stores them in `data/wordnet/mammal_vocab_fasttext_embeddings.csv`:
 ```
 virtualenv --python=python3 env3
 source env3/bin/activate
@@ -40,7 +41,14 @@ unzip crawl-300d-2M-subword.zip
 python generate_fasttext_embedding.py --vocab-file data/wordnet/mammal_vocab.csv
 ```
 
-Create train/test splits of the taxonomy:
+Create train/test splits of the taxonomy (only leaf nodes are partitioned):
+```
+python create_train_test_split.py \
+       --dataset data/wordnet/mammal.csv \
+       --train-edges-file data/wordnet/mammal_train.csv \
+       --test-edges-file data/wordnet/mammal_test.csv \
+       --test-fraction 0.15
+```
 
 Further configuration options:
   - See `projection_learning_model/constants.py`
