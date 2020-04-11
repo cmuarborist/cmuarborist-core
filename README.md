@@ -8,6 +8,8 @@ This repository contains the code for the Arborist taxonomy expansion method and
 
 ## Quickstart: CRIM on the Wordnet Taxonomy
 
+This is a slightly improved version of CRIM with the same enhancements used for Arborist.
+
 Install required packages:
 ```
 virtualenv --python=python2.7 env
