@@ -12,7 +12,7 @@ Install required packages:
 ```
 virtualenv --python=python2.7 env
 source env/bin/activate
-pip install -r requirements.txt
+pip install -r requirements_crim.txt
 ```
 
 Create the Wordnet dataset:
@@ -32,7 +32,7 @@ The following constructs FastText embeddings with the [Flair](https://github.com
 and stores them in `data/wordnet/mammal_vocab_fasttext_embeddings.csv`:
 ```
 virtualenv --python=python3 env3
-source env3/bin/activate
+source env3/bin/activate # need a Python 3 environment
 pip3 install flair
 
 wget https://dl.fbaipublicfiles.com/fasttext/vectors-english/crawl-300d-2M-subword.zip
@@ -43,6 +43,7 @@ python generate_fasttext_embedding.py --vocab-file data/wordnet/mammal_vocab.csv
 
 Create train/test splits of the taxonomy (only leaf nodes are partitioned):
 ```
+deactivate; source env/bin/activate # back in Python 2 environment
 python create_train_test_split.py \
        --dataset data/wordnet/mammal.csv \
        --train-edges-file data/wordnet/mammal_train.csv \
