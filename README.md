@@ -4,7 +4,7 @@
 
 [https://cmuarborist.github.io/](https://cmuarborist.github.io/)
 
-This repository contains the code for the Arborist taxonomy expansion method and the CRIM baseline.
+This repository contains the code for the Arborist taxonomy expansion method and the [CRIM](https://www.aclweb.org/anthology/S18-1116/) baseline.
 
 ## Quickstart: CRIM on the Wordnet Taxonomy
 
