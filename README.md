@@ -4,7 +4,7 @@
 
 [https://cmuarborist.github.io/](https://cmuarborist.github.io/)
 
-This repository contains the code for the Arborist method.
+This repository contains the code for the Arborist taxonomy expansion method and the CRIM baseline.
 
 ## Quickstart: CRIM on the Wordnet Taxonomy
 
