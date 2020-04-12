@@ -209,9 +209,9 @@ class NeuralTaxonomyExpander(nn.Module):
 
             if self.loss_type == "margin":
                 # scale s(u,v) with log-sigmoid to restrict range
-                loss = (-pos_similarity.sigmoid().clamp(min=EPS).log() +
-                        neg_similarity.sigmoid().clamp(min=EPS).log() +
-                        margin.clamp(min=EPS).log()).clamp(min=0)  # B x m
+                loss = (-pos_similarity.sigmoid().clamp(min=EPS) +
+                        neg_similarity.sigmoid().clamp(min=EPS) +
+                        margin.clamp(min=EPS)).clamp(min=0)  # B x m
                 #print("Active triplets: " + str(loss.nonzero().size(0)) + " of " + str(loss.numel()))
             elif self.loss_type =="sgns":
                 loss = (-pos_similarity.sigmoid().clamp(min=EPS).log().sum() -
@@ -388,7 +388,7 @@ class NeuralTaxonomyExpander(nn.Module):
                 val_loss_file.flush()
 
             if (epoch + 1) % SAVE_EVERY == 0:
-                print("Saving model...")
+                #print("Saving model...")
                 torch.save(self.state_dict(), save_folder + "/" + str(epoch+1) + ".pytorch")
 
         train_loss_file.close()
