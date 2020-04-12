@@ -10,13 +10,15 @@ To test if your embeddings (or, more generally, your node feature vectors) have 
 
 If CRIM performs reasonably well, Arborist will further improve performance by exploitng the latent heterogenous edge semantics (if any) present in the taxonomy.
 
+If Arborist is converging too slowly, try re-running the training script by setting the `loss_type='sgns'` to disable the margin loss.
+
 ## Quickstart: Arborist on the Wordnet Taxonomy
 
 Install required packages:
 ```
 virtualenv --python=python2.7 env
 source env/bin/activate
-pip install -r requirements_crim.txt
+pip install -r requirements.txt
 ```
 
 Create the Wordnet dataset:
@@ -106,7 +108,7 @@ Install required packages:
 ```
 virtualenv --python=python2.7 env
 source env/bin/activate
-pip install -r requirements_crim.txt
+pip install -r requirements.txt
 ```
 
 Create the Wordnet dataset:
