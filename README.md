@@ -182,6 +182,17 @@ The MRR, recall@15 and mean shortest-path-distance between predicted and actual 
 Predictions are made by computing cosine distances to internal training nodes only (since leaf nodes cannot have children).
 If `model-file` is not provided, the model with the highest validation MRR in `save-folder` is used.
 
+## Citation
+
+```
+@inproceedings{manzoor2020arborist,
+  title={Expanding Taxonomies with Implicit Edge Semantics},
+  author={Manzoor, Emaad and Shrouty, Dhananjay and Li, Rui and Leskovec, Jure},
+  booktitle={The World Wide Web Conference},
+  year={2020}
+}
+```
+
 ## Contact
 
    * emaad@cmu.edu
