@@ -8,9 +8,9 @@ This repository contains the code for the Arborist taxonomy expansion method and
 
 To test if your embeddings (or, more generally, your node feature vectors) have enough signal to predict taxonomy parents, we recommend running CRIM first (since it is a simpler model, and easier/faster to train).
 
-If CRIM performs reasonably well, Arborist will further improve performance by exploitng the latent heterogenous edge semantics (if any) present in the taxonomy.
+If CRIM performs reasonably well, Arborist will further improve performance by exploiting the latent heterogenous edge semantics (if any) present in the taxonomy.
 
-If Arborist is converging too slowly, try re-running the training script by setting the `loss_type='sgns'` to disable the margin loss.
+If Arborist is converging too slowly, try re-running the training script by setting the `loss_type='sgns'` in the call to `fit`, to disable the margin loss. If that helps, play around with the `upweight` hyperparameter that helps the margin loss converge.
 
 ## Quickstart: Arborist on the Wordnet Taxonomy
 
