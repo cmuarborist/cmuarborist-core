@@ -18,7 +18,7 @@ Install required packages:
 ```
 virtualenv --python=python2.7 env
 source env/bin/activate
-pip install -r requirements_crim.txt
+pip install -r requirements.txt
 ```
 
 Create the Wordnet dataset:
@@ -108,7 +108,7 @@ Install required packages:
 ```
 virtualenv --python=python2.7 env
 source env/bin/activate
-pip install -r requirements_crim.txt
+pip install -r requirements.txt
 ```
 
 Create the Wordnet dataset:
