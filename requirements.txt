@@ -1,5 +1,5 @@
 decorator==4.4.2
-future==0.18.2
+future==0.18.3
 networkx==2.2
 nltk==3.4.5
 numpy==1.16.6
